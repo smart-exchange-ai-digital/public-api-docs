@@ -1,0 +1,72 @@
+# Site settings
+title: "RiseMedia API Documentation"
+description: "Comprehensive API documentation for RiseMedia Reporting Service - Supply and Demand Partner APIs"
+baseurl: "/public-api-docs"
+url: "https://smart-exchange-ai-digital.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Navigation
+header_pages:
+  - index.md
+  - api-specification.md
+
+# SEO settings
+author: "RiseMedia"
+twitter:
+  username: risemedia
+social:
+  name: RiseMedia
+  links:
+    - https://github.com/smart-exchange-ai-digital
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+
+# Exclude files
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+
+# Include files
+include:
+  - _pages
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

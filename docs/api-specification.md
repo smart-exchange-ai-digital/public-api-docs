@@ -1,3 +1,10 @@
+---
+layout: page
+title: "API Specification"
+permalink: /api-specification/
+nav_order: 2
+---
+
 # **RiseMedia Reporting Service API Specification**
 
 ## **Overview**
@@ -12,10 +19,10 @@ The RiseMedia Reporting Service provides REST APIs for retrieving partner report
 
 ## **Table of Contents**
 
-1. [Supply Partner API](https://www.docstomarkdown.pro/convert-markdown-to-google-docs-online/#supply-partner-api)
-2. [Demand Partner API](https://www.docstomarkdown.pro/convert-markdown-to-google-docs-online/#demand-partner-api)
-3. [Error Handling](https://www.docstomarkdown.pro/convert-markdown-to-google-docs-online/#error-handling)
-4. [Authentication](https://www.docstomarkdown.pro/convert-markdown-to-google-docs-online/#authentication)
+1. [Supply Partner API](#supply-partner-api)
+2. [Demand Partner API](#demand-partner-api)
+3. [Error Handling](#error-handling)
+4. [Authentication](#authentication)
 
 ## **Supply Partner API**
 
@@ -56,36 +63,42 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 
 #### **Request Example**
 
-GET /api/v1/supply?api\_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890\&ssp\_id=ssp123\&start\_date=20240101\&end\_date=20240131\&output=json\&dimensions=date,hour,site\_id\&metrics=ad\_requests,impressions,revenue\&site\_id=site123
+```http
+GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&start_date=20240101&end_date=20240131&output=json&dimensions=date,hour,site_id&metrics=ad_requests,impressions,revenue&site_id=site123
+```
 
 #### **Response Format (JSON)**
 
-\[  
-{  
-"date": "2024-01-01",  
-"hour": 10,  
-"site\_id": "site123",  
-"ad\_requests": 1500,  
-"impressions": 1200,  
-"revenue": 45.67  
-},  
-{  
-"date": "2024-01-01",  
-"hour": 11,  
-"site\_id": "site123",  
-"ad\_requests": 1800,  
-"impressions": 1500,  
-"revenue": 52.34  
-}  
-\]
+```json
+[
+  {
+    "date": "2024-01-01",
+    "hour": 10,
+    "site_id": "site123",
+    "ad_requests": 1500,
+    "impressions": 1200,
+    "revenue": 45.67
+  },
+  {
+    "date": "2024-01-01",
+    "hour": 11,
+    "site_id": "site123",
+    "ad_requests": 1800,
+    "impressions": 1500,
+    "revenue": 52.34
+  }
+]
+```
 
 #### **Response Format (CSV)**
 
 When `output=csv`, the response will be a CSV file with headers:
 
-date,hour,site\_id,ad\_requests,impressions,revenue  
-2024-01-01,10,site123,1500,1200,45.67  
+```csv
+date,hour,site_id,ad_requests,impressions,revenue
+2024-01-01,10,site123,1500,1200,45.67
 2024-01-01,11,site123,1800,1500,52.34
+```
 
 ## 
 
@@ -132,38 +145,42 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 
 #### **Request Example**
 
-GET /api/v1/demand?api\_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890\&dsp\_id=dsp123\&start\_date=20240101\&end\_date=20240131\&output=json\&dimensions=date,hour,endpoint\_id\&metrics=bid\_requests,impressions,gross\_revenue\&endpoint\_id=endpoint456
-
-#### 
+```http
+GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&start_date=20240101&end_date=20240131&output=json&dimensions=date,hour,endpoint_id&metrics=bid_requests,impressions,gross_revenue&endpoint_id=endpoint456
+```
 
 #### **Response Format (JSON)**
 
-\[  
-{  
-"date": "2024-01-01",  
-"hour": 10,  
-"endpoint\_id": "endpoint456",  
-"bid\_requests": 2000,  
-"impressions": 1500,  
-"revenue": 78.90  
-},  
-{  
-"date": "2024-01-01",  
-"hour": 11,  
-"endpoint\_id": "endpoint456",  
-"bid\_requests": 2200,  
-"impressions": 1800,  
-"revenue": 89.12  
-}  
-\]
+```json
+[
+  {
+    "date": "2024-01-01",
+    "hour": 10,
+    "endpoint_id": "endpoint456",
+    "bid_requests": 2000,
+    "impressions": 1500,
+    "revenue": 78.90
+  },
+  {
+    "date": "2024-01-01",
+    "hour": 11,
+    "endpoint_id": "endpoint456",
+    "bid_requests": 2200,
+    "impressions": 1800,
+    "revenue": 89.12
+  }
+]
+```
 
 #### **Response Format (CSV)**
 
 When `output=csv`, the response will be a CSV file with headers:
 
-date,hour,endpoint\_id,bid\_requests,impressions,gross\_revenue  
-2024-01-01,10,endpoint456,2000,1500,78.90  
+```csv
+date,hour,endpoint_id,bid_requests,impressions,gross_revenue
+2024-01-01,10,endpoint456,2000,1500,78.90
 2024-01-01,11,endpoint456,2200,1800,89.12
+```
 
 ## **Error Handling**
 
@@ -171,13 +188,15 @@ The API uses standard HTTP status codes and returns detailed error information i
 
 ### **Error Response Format**
 
-{  
-"type": "about:blank",  
-"title": "Error Title",  
-"status": 400,  
-"detail": "Detailed error message",  
-"description": "Human-readable description of the error"  
+```json
+{
+  "type": "about:blank",
+  "title": "Error Title",
+  "status": 400,
+  "detail": "Detailed error message",
+  "description": "Human-readable description of the error"
 }
+```
 
 ### **HTTP Status Codes**
 
@@ -194,23 +213,27 @@ The API uses standard HTTP status codes and returns detailed error information i
 
 #### **400 Bad Request \- Missing Required Parameters**
 
-{  
-"type": "about:blank",  
-"title": "Bad Request",  
-"status": 400,  
-"detail": "\[start\_date is required, output is required\]",  
-"description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."  
+```json
+{
+  "type": "about:blank",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "[start_date is required, output is required]",
+  "description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."
 }
+```
 
 #### **400 Bad Request \- Invalid Date Format**
 
-{  
-"type": "about:blank",  
-"title": "Bad Request",  
-"status": 400,  
-"detail": "start\_date must be in YYYYMMDD format",  
-"description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."  
+```json
+{
+  "type": "about:blank",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "start_date must be in YYYYMMDD format",
+  "description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."
 }
+```
 
 #### 
 
@@ -218,33 +241,39 @@ The API uses standard HTTP status codes and returns detailed error information i
 
 #### **400 Bad Request \- Invalid Output Format**
 
-{  
-"type": "about:blank",  
-"title": "Bad Request",  
-"status": 400,  
-"detail": "output must be either 'json' or 'csv'",  
-"description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."  
+```json
+{
+  "type": "about:blank",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "output must be either 'json' or 'csv'",
+  "description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."
 }
+```
 
 #### **401 Unauthorized \- Invalid API Key**
 
-{  
-"type": "about:blank",  
-"title": "Unauthorized",  
-"status": 401,  
-"detail": "The API Key is invalid",  
-"description": "The API Key is invalid, check configuration and try again. "  
+```json
+{
+  "type": "about:blank",
+  "title": "Unauthorized",
+  "status": 401,
+  "detail": "The API Key is invalid",
+  "description": "The API Key is invalid, check configuration and try again."
 }
+```
 
 #### **403 Forbidden \- Insufficient Permissions**
 
-{  
-"type": "about:blank",  
-"title": "Forbidden",  
-"status": 403,  
-"detail": "Access is denied",  
-"description": "You are not authorized to access this resource."  
+```json
+{
+  "type": "about:blank",
+  "title": "Forbidden",
+  "status": 403,
+  "detail": "Access is denied",
+  "description": "You are not authorized to access this resource."
 }
+```
 
 ## **Authentication**
 
