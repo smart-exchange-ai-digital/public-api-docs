@@ -1,0 +1,267 @@
+# **RiseMedia Reporting Service API Specification**
+
+## **Overview**
+
+The RiseMedia Reporting Service provides REST APIs for retrieving partner reporting data for both supply and demand partners. The service offers flexible querying capabilities with support for multiple output formats and comprehensive filtering options.
+
+**Base URL:** TBD
+
+**API Version:** v1
+
+**Content-Type:** `application/json` or `text/csv` **Authentication:** API Key Authentication (Required)
+
+## **Table of Contents**
+
+1. [Supply Partner API](https://www.docstomarkdown.pro/convert-markdown-to-google-docs-online/#supply-partner-api)
+2. [Demand Partner API](https://www.docstomarkdown.pro/convert-markdown-to-google-docs-online/#demand-partner-api)
+3. [Error Handling](https://www.docstomarkdown.pro/convert-markdown-to-google-docs-online/#error-handling)
+4. [Authentication](https://www.docstomarkdown.pro/convert-markdown-to-google-docs-online/#authentication)
+
+## **Supply Partner API**
+
+### **Get Supply Partner Statistics**
+
+Retrieves supply partner reporting data with flexible filtering and output formatting.
+
+**Endpoint:** `GET /api/v1/supply`
+
+**Query Parameters**
+
+| Parameters | Data Type | Required | Description | Example |
+| :---- | :---- | :---- | :---- | :---- |
+| `api_key` | String | Yes | API Key |  |
+| `ssp_id` | String | Yes | Supply Partner ID in RiseMediaTech Platform |  |
+| `start_date` | String | Yes | Start Date in YYYYMMDD | `20240101` |
+| `end_date` | String | Yes | End Date in YYYYMMDD | `20240131` |
+| `output` | String | Yes | Output format (`json` or `csv`) | `json` |
+| `site_id` | String | No | Filter by specific site ID(s) | `site123` |
+| `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,site_id` |
+| `metrics` | String | Yes | Comma-separated metrics | `Ad_requests,pressions,revenue` |
+
+#### **Available Dimensions**
+
+1. `date` \- Date in YYYYMMDD format
+2. `hour` \- Hour of the day (0-23)
+3. `site_id` \- Site identifier
+
+#### **Available Metrics**
+
+1. `ad_requests` \- Total number of ad requests
+2. `impressions` \- Total number of impressions served
+3. `revenue` \- Total publisher revenue
+
+#### 
+
+#### 
+
+#### **Request Example**
+
+GET /api/v1/supply?api\_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890\&ssp\_id=ssp123\&start\_date=20240101\&end\_date=20240131\&output=json\&dimensions=date,hour,site\_id\&metrics=ad\_requests,impressions,revenue\&site\_id=site123
+
+#### **Response Format (JSON)**
+
+\[  
+{  
+"date": "2024-01-01",  
+"hour": 10,  
+"site\_id": "site123",  
+"ad\_requests": 1500,  
+"impressions": 1200,  
+"revenue": 45.67  
+},  
+{  
+"date": "2024-01-01",  
+"hour": 11,  
+"site\_id": "site123",  
+"ad\_requests": 1800,  
+"impressions": 1500,  
+"revenue": 52.34  
+}  
+\]
+
+#### **Response Format (CSV)**
+
+When `output=csv`, the response will be a CSV file with headers:
+
+date,hour,site\_id,ad\_requests,impressions,revenue  
+2024-01-01,10,site123,1500,1200,45.67  
+2024-01-01,11,site123,1800,1500,52.34
+
+## 
+
+## 
+
+## 
+
+## 
+
+## **Demand Partner API**
+
+### **Get Demand Partner Statistics**
+
+Retrieves demand partner reporting data with flexible filtering and output formatting.
+
+**Endpoint:** `GET /api/v1/demand`
+
+#### 
+
+#### **Query Parameters**
+
+| Parameters | Data Type | Required | Description | Example |
+| :---- | :---- | :---- | :---- | :---- |
+| `api_key` | String | Yes | API Key |  |
+| `dsp_id` | String | Yes | Demand Partner ID in RiseMediaTech Platform |  |
+| `start_date` | String | Yes | Start Date in YYYYMMDD | `20240101` |
+| `end_date` | String | Yes | End Date in YYYYMMDD | `20240131` |
+| `output` | String | Yes | Output format (`json` or `csv`) | `json` |
+| `endpoint_id` | String | No | Filter by specific endpoint ID | `123` |
+| `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,endpoint_id` |
+| `metrics` | String | Yes | Comma-separated metrics | `bid_requests,impressions,gross_revenue` |
+
+#### **Available Dimensions**
+
+1. `date` \- Date in YYYYMMDD format
+2. `hour` \- Hour of the day (0-23)
+3. `endpoint_id` \- Endpoint identifier
+
+#### **Available Metrics**
+
+1. `bid_requests` \- Total number of bid requests
+2. `impressions` \- Total number of impressions served
+3. `revenue` \- Total gross revenue
+
+#### **Request Example**
+
+GET /api/v1/demand?api\_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890\&dsp\_id=dsp123\&start\_date=20240101\&end\_date=20240131\&output=json\&dimensions=date,hour,endpoint\_id\&metrics=bid\_requests,impressions,gross\_revenue\&endpoint\_id=endpoint456
+
+#### 
+
+#### **Response Format (JSON)**
+
+\[  
+{  
+"date": "2024-01-01",  
+"hour": 10,  
+"endpoint\_id": "endpoint456",  
+"bid\_requests": 2000,  
+"impressions": 1500,  
+"revenue": 78.90  
+},  
+{  
+"date": "2024-01-01",  
+"hour": 11,  
+"endpoint\_id": "endpoint456",  
+"bid\_requests": 2200,  
+"impressions": 1800,  
+"revenue": 89.12  
+}  
+\]
+
+#### **Response Format (CSV)**
+
+When `output=csv`, the response will be a CSV file with headers:
+
+date,hour,endpoint\_id,bid\_requests,impressions,gross\_revenue  
+2024-01-01,10,endpoint456,2000,1500,78.90  
+2024-01-01,11,endpoint456,2200,1800,89.12
+
+## **Error Handling**
+
+The API uses standard HTTP status codes and returns detailed error information in the response body.
+
+### **Error Response Format**
+
+{  
+"type": "about:blank",  
+"title": "Error Title",  
+"status": 400,  
+"detail": "Detailed error message",  
+"description": "Human-readable description of the error"  
+}
+
+### **HTTP Status Codes**
+
+| Status Code | Status | Description |
+| :---- | :---- | :---- |
+| `200` | Success | Request processed successfully |
+| `400` | Bad Request | Invalid parameters, missing required fields, invalid date format |
+| `401` | Unauthorized | Invalid API Key |
+| `403` | Forbidden | Insufficient permissions to access the resource |
+| `404` | Not Found | Endpoint not found or HTTP method not supported |
+| `500` | Internal Server Error | Unexpected server error |
+
+### **Common Error Scenarios**
+
+#### **400 Bad Request \- Missing Required Parameters**
+
+{  
+"type": "about:blank",  
+"title": "Bad Request",  
+"status": 400,  
+"detail": "\[start\_date is required, output is required\]",  
+"description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."  
+}
+
+#### **400 Bad Request \- Invalid Date Format**
+
+{  
+"type": "about:blank",  
+"title": "Bad Request",  
+"status": 400,  
+"detail": "start\_date must be in YYYYMMDD format",  
+"description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."  
+}
+
+#### 
+
+#### 
+
+#### **400 Bad Request \- Invalid Output Format**
+
+{  
+"type": "about:blank",  
+"title": "Bad Request",  
+"status": 400,  
+"detail": "output must be either 'json' or 'csv'",  
+"description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."  
+}
+
+#### **401 Unauthorized \- Invalid API Key**
+
+{  
+"type": "about:blank",  
+"title": "Unauthorized",  
+"status": 401,  
+"detail": "The API Key is invalid",  
+"description": "The API Key is invalid, check configuration and try again. "  
+}
+
+#### **403 Forbidden \- Insufficient Permissions**
+
+{  
+"type": "about:blank",  
+"title": "Forbidden",  
+"status": 403,  
+"detail": "Access is denied",  
+"description": "You are not authorized to access this resource."  
+}
+
+## **Authentication**
+
+The API uses API Key authentication for partner access. Each partner (Supply or Demand) has a unique API key that must be included in the request parameters.
+
+### **Authentication Requirements**
+
+1. API keys are **required** for all partner endpoints (`/api/v1/supply` and `/api/v1/demand`)
+2. Supply Partner API keys can only access Supply Partner endpoints
+3. Demand Partner API keys can only access Demand Partner endpoints
+4. API keys are validated against the partner database
+5. Invalid or missing API keys result in `401 Unauthorized` responses
+
+### **Security Features**
+
+1. API keys are stored securely in the database
+2. Keys can be deactivated if compromised
+3. Each partner can only access their own data
+4. No cross-partner data access is permitted
+
