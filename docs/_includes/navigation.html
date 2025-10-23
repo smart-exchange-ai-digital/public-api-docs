@@ -1,7 +1,7 @@
 <nav class="site-nav">
   <div class="nav-container">
     <a href="{{ '/' | relative_url }}" class="nav-logo">
-      <img src="{{ site.logo | relative_url }}" alt="RiseMedia Logo" class="logo-image">
+      <img src="{{ '/public-api-docs/assets/risemedia-logo.png' | relative_url }}" alt="RiseMedia Logo" class="logo-image">
       <strong>RiseMedia API</strong>
     </a>
     <div class="nav-links">
@@ -38,7 +38,7 @@
 }
 
 .nav-logo {
-  color: white;
+  color: white !important;
   text-decoration: none;
   font-size: 1.3em;
   font-weight: 600;
@@ -47,8 +47,17 @@
   gap: 8px;
 }
 
+.nav-logo strong {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
 .nav-logo:hover {
-  color: #f8f9fa;
+  color: #f8f9fa !important;
+}
+
+.nav-logo:hover strong {
+  color: #f8f9fa !important;
 }
 
 .logo-image {
@@ -70,26 +79,26 @@
 }
 
 .nav-link {
-  color: white;
+  color: white !important;
   text-decoration: none;
   padding: 8px 15px;
   border-radius: 5px;
   transition: all 0.3s ease;
   font-weight: 500;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  color: white !important;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 }
 
 .nav-link.active {
   background-color: rgba(255, 255, 255, 0.3);
   font-weight: 600;
-  color: white;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  color: white !important;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 }
 
 .nav-link.external::after {

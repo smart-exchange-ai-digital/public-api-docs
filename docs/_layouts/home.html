@@ -8,7 +8,7 @@ layout: default
 <div class="api-documentation">
   <div class="hero-section">
     <div class="hero-logo">
-      <img src="{{ site.logo | relative_url }}" alt="RiseMedia Logo" class="hero-logo-image">
+      <img src="{{ '/public-api-docs/assets/risemedia-logo.png' | relative_url }}" alt="RiseMedia Logo" class="hero-logo-image">
     </div>
     <h1 class="hero-title">{{ page.title | default: site.title }}</h1>
     <p class="hero-subtitle">Professional API Documentation for Modern Development</p>
@@ -109,26 +109,36 @@ layout: default
 
 .api-content table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   border-radius: 8px;
   overflow: hidden;
+  table-layout: fixed;
 }
 
 .api-content th {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 15px;
+  padding: 12px 8px;
   text-align: left;
   font-weight: 600;
+  font-size: 0.9em;
+  word-wrap: break-word;
 }
 
 .api-content td {
-  padding: 12px 15px;
+  padding: 10px 8px;
   border-bottom: 1px solid #eee;
   vertical-align: top;
+  word-wrap: break-word;
+  font-size: 0.9em;
 }
+
+.api-content th:nth-child(1), .api-content td:nth-child(1) { width: 30%; }
+.api-content th:nth-child(2), .api-content td:nth-child(2) { width: 40%; }
+.api-content th:nth-child(3), .api-content td:nth-child(3) { width: 30%; }
 
 .api-content tr:nth-child(even) {
   background-color: #f8f9fa;
@@ -196,7 +206,7 @@ layout: default
   margin-top: 50px;
   padding: 30px 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  color: white !important;
   border-radius: 10px;
   text-align: center;
 }
@@ -207,21 +217,41 @@ layout: default
   padding: 0 20px;
 }
 
+.footer-content p {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+.footer-content strong {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
 .footer-license {
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   font-size: 0.9em;
-  opacity: 0.9;
+}
+
+.footer-license p {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  font-weight: 400;
 }
 
 .footer-license a {
-  color: #ffffff;
+  color: #ffffff !important;
   text-decoration: underline;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  font-weight: 500;
 }
 
 .footer-license a:hover {
-  color: #f8f9fa;
+  color: #f8f9fa !important;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
 }
 
 .footer-license hr {
@@ -261,18 +291,6 @@ layout: default
   
   .api-content h2 {
     font-size: 1.5em;
-  }
-  
-  .api-content table {
-    font-size: 0.9em;
-    overflow-x: auto;
-    display: block;
-    white-space: nowrap;
-  }
-  
-  .api-content th, .api-content td {
-    padding: 8px 6px;
-    font-size: 0.8em;
   }
 }
 </style>
