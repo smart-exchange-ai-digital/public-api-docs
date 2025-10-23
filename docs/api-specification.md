@@ -283,7 +283,9 @@ The API uses API Key authentication for partner access. Each partner (Supply or 
 
 <footer class="documentation-footer">
   <div class="footer-content">
-    <p><strong>Questions or Issues?</strong> Please contact our API support team or <a href="https://github.com/smart-exchange-ai-digital/public-api-docs/issues" target="_blank">create an issue on GitHub</a>.</p>
+    <p style="color: #ffffff !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important; font-weight: bold !important; background-color: rgba(0,0,0,0.3) !important; padding: 8px 12px !important; border-radius: 6px !important; display: inline-block !important;">
+      <strong style="color: #ffffff !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.9) !important;">Questions or Issues?</strong> Please contact our API support team or <a href="https://github.com/smart-exchange-ai-digital/public-api-docs/issues" target="_blank" style="color: #ffffff !important; text-decoration: underline !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;">create an issue on GitHub</a>.
+    </p>
     <div class="footer-license">
       <hr>
       <p>&copy; 2025 AI Digital. All rights reserved.</p>

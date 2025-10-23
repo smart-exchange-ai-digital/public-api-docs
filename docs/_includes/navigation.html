@@ -1,7 +1,13 @@
 <nav class="site-nav">
   <div class="nav-container">
     <a href="{{ '/' | relative_url }}" class="nav-logo">
-      <img src="{{ '/public-api-docs/assets/risemedia-logo.png' | relative_url }}" alt="RiseMedia Logo" class="logo-image">
+      <img src="https://smart-exchange-ai-digital.github.io/public-api-docs/assets/risemedia-logo.png" 
+           alt="RiseMedia Logo" 
+           class="logo-image" 
+           loading="eager"
+           onerror="console.log('Logo failed to load:', this.src); this.style.border='2px solid red';"
+           onload="console.log('Logo loaded successfully:', this.src);"
+           crossorigin="anonymous">
       <strong>RiseMedia API</strong>
     </a>
     <div class="nav-links">
@@ -61,12 +67,17 @@
 }
 
 .logo-image {
-  height: 32px;
-  width: auto;
+  height: 32px !important;
+  width: auto !important;
   transition: all 0.3s ease;
-  background: white;
-  padding: 2px;
-  border-radius: 4px;
+  background: white !important;
+  padding: 2px !important;
+  border-radius: 4px !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: none !important;
+  min-height: 32px !important;
 }
 
 .nav-logo:hover .logo-image {
