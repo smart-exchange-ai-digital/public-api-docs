@@ -1,6 +1,6 @@
 # Site settings
 title: "RiseMedia API Documentation"
-description: "📊 Comprehensive API documentation for RiseMedia Reporting Service - Supply and Demand Partner APIs"
+description: "Comprehensive API documentation for RiseMedia Reporting Service - Supply and Demand Partner APIs"
 baseurl: "/public-api-docs"
 url: "https://smart-exchange-ai-digital.github.io"
 
@@ -11,7 +11,7 @@ brand_color: "#667eea"
 # Build settings
 markdown: kramdown
 highlighter: rouge
-theme: minima
+# theme: minima  # Disabled to prevent default theme interference
 
 # Plugins
 plugins:
