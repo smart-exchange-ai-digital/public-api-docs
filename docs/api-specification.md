@@ -15,7 +15,9 @@ The RiseMedia Reporting Service provides REST APIs for retrieving partner report
 
 **API Version:** v1
 
-**Content-Type:** `application/json` or `text/csv` **Authentication:** API Key Authentication (Required)
+**Content-Type:** `application/json` or `text/csv`
+
+**Authentication:** API Key Authentication (Required)
 
 ## **Table of Contents**
 
@@ -43,23 +45,19 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
 | `site_id` | String | No | Filter by specific site ID(s) | `site123` |
 | `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,site_id` |
-| `metrics` | String | Yes | Comma-separated metrics | `Ad_requests,pressions,revenue` |
+| `metrics` | String | Yes | Comma-separated metrics | `ad_requests,impressions,revenue` |
 
 #### **Available Dimensions**
 
-1. `date` \- Date in YYYYMMDD format
-2. `hour` \- Hour of the day (0-23)
-3. `site_id` \- Site identifier
+1. `date` - Date in YYYYMMDD format
+2. `hour` - Hour of the day (0-23)
+3. `site_id` - Site identifier
 
 #### **Available Metrics**
 
-1. `ad_requests` \- Total number of ad requests
-2. `impressions` \- Total number of impressions served
-3. `revenue` \- Total publisher revenue
-
-#### 
-
-#### 
+1. `ad_requests` - Total number of ad requests
+2. `impressions` - Total number of impressions served
+3. `revenue` - Total publisher revenue
 
 #### **Request Example**
 
@@ -100,14 +98,6 @@ date,hour,site_id,ad_requests,impressions,revenue
 2024-01-01,11,site123,1800,1500,52.34
 ```
 
-## 
-
-## 
-
-## 
-
-## 
-
 ## **Demand Partner API**
 
 ### **Get Demand Partner Statistics**
@@ -115,8 +105,6 @@ date,hour,site_id,ad_requests,impressions,revenue
 Retrieves demand partner reporting data with flexible filtering and output formatting.
 
 **Endpoint:** `GET /api/v1/demand`
-
-#### 
 
 #### **Query Parameters**
 
@@ -133,15 +121,15 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 
 #### **Available Dimensions**
 
-1. `date` \- Date in YYYYMMDD format
-2. `hour` \- Hour of the day (0-23)
-3. `endpoint_id` \- Endpoint identifier
+1. `date` - Date in YYYYMMDD format
+2. `hour` - Hour of the day (0-23)
+3. `endpoint_id` - Endpoint identifier
 
 #### **Available Metrics**
 
-1. `bid_requests` \- Total number of bid requests
-2. `impressions` \- Total number of impressions served
-3. `revenue` \- Total gross revenue
+1. `bid_requests` - Total number of bid requests
+2. `impressions` - Total number of impressions served
+3. `revenue` - Total gross revenue
 
 #### **Request Example**
 
@@ -237,8 +225,6 @@ The API uses standard HTTP status codes and returns detailed error information i
 
 #### 
 
-#### 
-
 #### **400 Bad Request \- Invalid Output Format**
 
 ```json
@@ -291,6 +277,22 @@ The API uses API Key authentication for partner access. Each partner (Supply or 
 
 1. API keys are stored securely in the database
 2. Keys can be deactivated if compromised
-3. Each partner can only access their own data
-4. No cross-partner data access is permitted
+3. All API communications are encrypted in transit
+4. Each partner can only access their own data
+5. No cross-partner data access is permitted
+
+---
+
+<footer class="documentation-footer">
+  <div class="footer-content">
+    <p><strong>Questions or Issues?</strong> Please contact our API support team or <a href="https://github.com/smart-exchange-ai-digital/public-api-docs/issues" target="_blank">create an issue on GitHub</a>.</p>
+    <div class="footer-license">
+      <hr>
+      <p>&copy; 2025 AI Digital. All rights reserved.</p>
+      <p>This documentation is proprietary and subject to the terms of your Partner Agreement. 
+      <a href="https://github.com/smart-exchange-ai-digital/public-api-docs/blob/main/LICENSE" target="_blank">View license terms</a> | 
+      <a href="https://github.com/smart-exchange-ai-digital/public-api-docs" target="_blank">GitHub Repository</a></p>
+    </div>
+  </div>
+</footer>
 

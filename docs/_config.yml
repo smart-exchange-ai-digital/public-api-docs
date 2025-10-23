@@ -1,8 +1,12 @@
 # Site settings
 title: "RiseMedia API Documentation"
-description: "Comprehensive API documentation for RiseMedia Reporting Service - Supply and Demand Partner APIs"
+description: "📊 Comprehensive API documentation for RiseMedia Reporting Service - Supply and Demand Partner APIs"
 baseurl: "/public-api-docs"
 url: "https://smart-exchange-ai-digital.github.io"
+
+# Site branding
+logo: "/public-api-docs/assets/risemedia-logo.png"
+brand_color: "#667eea"
 
 # Build settings
 markdown: kramdown
@@ -14,11 +18,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-
-# Navigation
-header_pages:
-  - index.md
-  - api-specification.md
 
 # SEO settings
 author: "RiseMedia"
@@ -39,6 +38,8 @@ kramdown:
       line_numbers: false
     block:
       line_numbers: false
+  auto_ids: true
+  toc_levels: 1..6
 
 # Exclude files
 exclude:
@@ -47,16 +48,12 @@ exclude:
   - .gitignore
   - Gemfile
   - Gemfile.lock
+  - vendor/
 
 # Include files
 include:
   - _pages
-
-# Collections
-collections:
-  pages:
-    output: true
-    permalink: /:name/
+  - assets
 
 # Default front matter
 defaults:
@@ -67,6 +64,5 @@ defaults:
       layout: "page"
   - scope:
       path: ""
-      type: "posts"
     values:
-      layout: "post"
+      layout: "page"

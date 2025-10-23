@@ -6,12 +6,60 @@ layout: default
 {% include navigation.html %}
 
 <div class="api-documentation">
+  <div class="hero-section">
+    <div class="hero-logo">
+      <img src="{{ site.logo | relative_url }}" alt="RiseMedia Logo" class="hero-logo-image">
+    </div>
+    <h1 class="hero-title">{{ page.title | default: site.title }}</h1>
+    <p class="hero-subtitle">Professional API Documentation for Modern Development</p>
+  </div>
+  
   <article class="api-content">
     {{ content }}
   </article>
 </div>
 
 <style>
+.hero-section {
+  text-align: center;
+  padding: 60px 20px 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.hero-logo {
+  margin-bottom: 30px;
+  animation: pulse 2s ease-in-out infinite alternate;
+}
+
+.hero-logo-image {
+  height: 80px;
+  width: auto;
+  filter: brightness(0) invert(1) drop-shadow(0 4px 8px rgba(0,0,0,0.3)); /* Makes the logo white with shadow */
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.hero-title {
+  font-size: 2.5em;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.2em;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
 .api-documentation {
   max-width: 1200px;
   margin: 0 auto;
@@ -27,6 +75,7 @@ layout: default
   line-height: 1.6;
 }
 
+/* Copy all the existing styles from page.html */
 .api-content h1 {
   color: #2c3e50;
   border-bottom: 3px solid #667eea;
@@ -184,6 +233,22 @@ layout: default
 @media (max-width: 768px) {
   .api-documentation {
     padding: 10px;
+  }
+  
+  .hero-section {
+    padding: 40px 15px 30px 15px;
+  }
+  
+  .hero-logo-image {
+    height: 60px;
+  }
+  
+  .hero-title {
+    font-size: 2em;
+  }
+  
+  .hero-subtitle {
+    font-size: 1em;
   }
   
   .api-content {
