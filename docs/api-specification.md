@@ -223,8 +223,6 @@ The API uses standard HTTP status codes and returns detailed error information i
 }
 ```
 
-#### 
-
 #### **400 Bad Request \- Invalid Output Format**
 
 ```json
