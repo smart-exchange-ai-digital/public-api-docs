@@ -70,7 +70,7 @@ GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&st
 ```json
 [
   {
-    "date": "2024-01-01",
+    "date": "20240101",
     "hour": 10,
     "site_id": "site123",
     "ad_requests": 1500,
@@ -78,7 +78,7 @@ GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&st
     "revenue": 45.67
   },
   {
-    "date": "2024-01-01",
+    "date": "20240101",
     "hour": 11,
     "site_id": "site123",
     "ad_requests": 1800,
@@ -94,8 +94,8 @@ When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
 date,hour,site_id,ad_requests,impressions,revenue
-2024-01-01,10,site123,1500,1200,45.67
-2024-01-01,11,site123,1800,1500,52.34
+20240101,10,site123,1500,1200,45.67
+20240101,11,site123,1800,1500,52.34
 ```
 
 ## **Demand Partner API**
@@ -142,7 +142,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
 ```json
 [
   {
-    "date": "2024-01-01",
+    "date": "20240101",
     "hour": 10,
     "endpoint_id": "endpoint456",
     "bid_requests": 2000,
@@ -150,7 +150,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
     "revenue": 78.90
   },
   {
-    "date": "2024-01-01",
+    "date": "20240101",
     "hour": 11,
     "endpoint_id": "endpoint456",
     "bid_requests": 2200,
@@ -166,8 +166,8 @@ When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
 date,hour,endpoint_id,bid_requests,impressions,revenue
-2024-01-01,10,endpoint456,2000,1500,78.90
-2024-01-01,11,endpoint456,2200,1800,89.12
+20240101,10,endpoint456,2000,1500,78.90
+20240101,11,endpoint456,2200,1800,89.12
 ```
 
 ## **Error Handling**
