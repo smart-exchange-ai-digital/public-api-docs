@@ -57,7 +57,7 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 
 1. `ad_requests` - Total number of ad requests
 2. `impressions` - Total number of impressions served
-3. `revenue` - Total publisher revenue
+3. `revenue` - Total supply revenue
 
 #### **Request Example**
 
@@ -117,7 +117,7 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
 | `endpoint_id` | String | No | Filter by specific endpoint ID | `123` |
 | `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,endpoint_id` |
-| `metrics` | String | Yes | Comma-separated metrics | `bid_requests,impressions,gross_revenue` |
+| `metrics` | String | Yes | Comma-separated metrics | `bid_requests,impressions,revenue` |
 
 #### **Available Dimensions**
 
@@ -129,12 +129,12 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 
 1. `bid_requests` - Total number of bid requests
 2. `impressions` - Total number of impressions served
-3. `revenue` - Total gross revenue
+3. `revenue` - Total demand revenue
 
 #### **Request Example**
 
 ```http
-GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&start_date=20240101&end_date=20240131&output=json&dimensions=date,hour,endpoint_id&metrics=bid_requests,impressions,gross_revenue&endpoint_id=endpoint456
+GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&start_date=20240101&end_date=20240131&output=json&dimensions=date,hour,endpoint_id&metrics=bid_requests,impressions,revenue&endpoint_id=endpoint456
 ```
 
 #### **Response Format (JSON)**
@@ -165,7 +165,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
 When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
-date,hour,endpoint_id,bid_requests,impressions,gross_revenue
+date,hour,endpoint_id,bid_requests,impressions,revenue
 2024-01-01,10,endpoint456,2000,1500,78.90
 2024-01-01,11,endpoint456,2200,1800,89.12
 ```
@@ -182,6 +182,7 @@ The API uses standard HTTP status codes and returns detailed error information i
   "title": "Error Title",
   "status": 400,
   "detail": "Detailed error message",
+  "instance": "URI",
   "description": "Human-readable description of the error"
 }
 ```
@@ -207,6 +208,7 @@ The API uses standard HTTP status codes and returns detailed error information i
   "title": "Bad Request",
   "status": 400,
   "detail": "[start_date is required, output is required]",
+  "instance": "/api/v1/supply",
   "description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."
 }
 ```
@@ -219,6 +221,7 @@ The API uses standard HTTP status codes and returns detailed error information i
   "title": "Bad Request",
   "status": 400,
   "detail": "start_date must be in YYYYMMDD format",
+  "instance": "/api/v1/demand",
   "description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."
 }
 ```
@@ -231,6 +234,7 @@ The API uses standard HTTP status codes and returns detailed error information i
   "title": "Bad Request",
   "status": 400,
   "detail": "output must be either 'json' or 'csv'",
+  "instance": "/api/v1/supply",
   "description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."
 }
 ```
@@ -243,6 +247,7 @@ The API uses standard HTTP status codes and returns detailed error information i
   "title": "Unauthorized",
   "status": 401,
   "detail": "The API Key is invalid",
+  "instance": "/api/v1/demand",
   "description": "The API Key is invalid, check configuration and try again."
 }
 ```
@@ -255,6 +260,7 @@ The API uses standard HTTP status codes and returns detailed error information i
   "title": "Forbidden",
   "status": 403,
   "detail": "Access is denied",
+  "instance": "/api/v1/supply",
   "description": "You are not authorized to access this resource."
 }
 ```
@@ -274,7 +280,7 @@ The API uses API Key authentication for partner access. Each partner (Supply or 
 ### **Security Features**
 
 1. API keys are stored securely in the database
-2. Keys can be deactivated if compromised
+2. Keys can be re-generated/deactivated if compromised
 3. All API communications are encrypted in transit
 4. Each partner can only access their own data
 5. No cross-partner data access is permitted
