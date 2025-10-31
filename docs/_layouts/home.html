@@ -1,0 +1,298 @@
+---
+layout: default
+---
+
+{% include favicon.html %}
+{% include navigation.html %}
+
+<div class="api-documentation">
+  <div class="hero-section">
+    <div class="hero-logo">
+      <img src="https://smart-exchange-ai-digital.github.io/public-api-docs/assets/risemedia-logo.png" alt="RiseMedia Logo" class="hero-logo-image" loading="eager">
+    </div>
+    <h1 class="hero-title">{{ page.title | default: site.title }}</h1>
+  </div>
+  
+  <article class="api-content">
+    {{ content }}
+  </article>
+</div>
+
+<style>
+.hero-section {
+  text-align: center;
+  padding: 60px 20px 40px 20px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 100%);
+  color: white;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.hero-logo {
+  margin-bottom: 30px;
+  animation: pulse 2s ease-in-out infinite alternate;
+}
+
+.hero-logo-image {
+  height: 80px;
+  width: auto;
+  background: white;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.hero-title {
+  font-size: 2.5em;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.2em;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.api-documentation {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.api-content {
+  background: white;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  line-height: 1.6;
+}
+
+/* Copy all the existing styles from page.html */
+.api-content h1 {
+  color: #2c3e50;
+  border-bottom: 3px solid #1e3a8a;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  font-size: 2.5em;
+}
+
+.api-content h2 {
+  color: #34495e;
+  border-left: 4px solid #1e3a8a;
+  padding-left: 15px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+.api-content h3 {
+  color: #2c3e50;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.4em;
+}
+
+.api-content h4 {
+  color: #34495e;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.api-content table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+.api-content th {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 100%);
+  color: white;
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9em;
+  word-wrap: break-word;
+}
+
+.api-content td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+  word-wrap: break-word;
+  font-size: 0.9em;
+}
+
+.api-content th:nth-child(1), .api-content td:nth-child(1) { width: 30%; }
+.api-content th:nth-child(2), .api-content td:nth-child(2) { width: 40%; }
+.api-content th:nth-child(3), .api-content td:nth-child(3) { width: 30%; }
+
+.api-content tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.api-content tr:hover {
+  background-color: #e8f4fd;
+}
+
+.api-content code {
+  background-color: #f1f3f4;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SFMono-Regular', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  color: #d73a49;
+  font-size: 0.9em;
+}
+
+.api-content pre {
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 20px;
+  overflow-x: auto;
+  margin: 20px 0;
+  position: relative;
+}
+
+.api-content pre code {
+  background: none;
+  padding: 0;
+  color: #24292e;
+  font-size: 0.9em;
+  line-height: 1.45;
+}
+
+.api-content ul, .api-content ol {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+.api-content li {
+  margin: 8px 0;
+}
+
+.api-content p {
+  margin: 15px 0;
+  color: #586069;
+}
+
+.api-content strong {
+  color: #24292e;
+}
+
+.api-content a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.api-content a:hover {
+  text-decoration: underline;
+}
+
+.documentation-footer {
+  margin-top: 50px;
+  padding: 30px 0;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 100%);
+  color: white !important;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content p {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+.footer-content strong {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.footer-license {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.9em;
+}
+
+.footer-license p {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  font-weight: 400;
+}
+
+.footer-license a {
+  color: #ffffff !important;
+  text-decoration: underline;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  font-weight: 500;
+}
+
+.footer-license a:hover {
+  color: #f8f9fa !important;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.footer-license hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 15px 0;
+}
+
+@media (max-width: 768px) {
+  .api-documentation {
+    padding: 10px;
+  }
+  
+  .hero-section {
+    padding: 40px 15px 30px 15px;
+  }
+  
+  .hero-logo-image {
+    height: 60px;
+  }
+  
+  .hero-title {
+    font-size: 2em;
+  }
+  
+  .hero-subtitle {
+    font-size: 1em;
+  }
+  
+  .api-content {
+    padding: 20px;
+  }
+  
+  .api-content h1 {
+    font-size: 2em;
+  }
+  
+  .api-content h2 {
+    font-size: 1.5em;
+  }
+}
+</style>
