@@ -46,7 +46,7 @@ The Smart Exchange Reporting Service provides REST APIs for retrieving partner r
     <p><strong>Need help?</strong> Contact our API support team for assistance with integration and troubleshooting.</p>
     <div class="footer-license">
       <hr>
-      <p>&copy; 2025 AI Digital. All rights reserved.</p>
+      <p>&copy; 2026 AI Digital. All rights reserved.</p>
       <p>This documentation is proprietary and subject to the terms of your Partner Agreement. 
       See the <a href="https://github.com/smart-exchange-ai-digital/public-api-docs/blob/main/LICENSE" target="_blank">license terms</a> and 
       <a href="https://github.com/smart-exchange-ai-digital/public-api-docs" target="_blank">source repository</a> on GitHub.</p>

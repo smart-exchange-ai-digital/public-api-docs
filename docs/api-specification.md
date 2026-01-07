@@ -294,7 +294,7 @@ The API uses API Key authentication for partner access. Each partner (Supply or 
     </p>
     <div class="footer-license">
       <hr>
-      <p>&copy; 2025 AI Digital. All rights reserved.</p>
+      <p>&copy; 2026 AI Digital. All rights reserved.</p>
       <p>This documentation is proprietary and subject to the terms of your Partner Agreement. 
       <a href="https://github.com/smart-exchange-ai-digital/public-api-docs/blob/main/LICENSE" target="_blank">View license terms</a> | 
       <a href="https://github.com/smart-exchange-ai-digital/public-api-docs" target="_blank">GitHub Repository</a></p>
