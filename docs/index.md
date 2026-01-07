@@ -27,7 +27,7 @@ The Smart Exchange Reporting Service provides REST APIs for retrieving partner r
 
 ## Getting Started
 
-1. **Obtain your API key** from your Smart Exchange partner dashboard
+1. **Obtain your API key** from Smart Exchange console or reach out to your contact in Smart Exchange
 2. **Choose your endpoint** - Supply (`/api/v1/supply`) or Demand (`/api/v1/demand`)
 3. **Review the documentation** - Check parameters and response formats
 4. **Make your first request** - Start with a basic date range query

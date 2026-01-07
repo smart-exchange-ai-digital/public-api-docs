@@ -11,7 +11,7 @@ nav_order: 2
 
 The Smart Exchange Reporting Service provides REST APIs for retrieving partner reporting data for both supply and demand partners. The service offers flexible querying capabilities with support for multiple output formats and comprehensive filtering options.
 
-**Base URL:** TBD
+**Base URL:** Login to Smart Exchange console or reach out to your contact in Smart Exchange
 
 **API Version:** v1
 
