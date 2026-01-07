@@ -5,11 +5,11 @@ permalink: /api-specification/
 nav_order: 2
 ---
 
-# **RiseMedia Reporting Service API Specification**
+# **Smart Exchange Reporting Service API Specification**
 
 ## **Overview**
 
-The RiseMedia Reporting Service provides REST APIs for retrieving partner reporting data for both supply and demand partners. The service offers flexible querying capabilities with support for multiple output formats and comprehensive filtering options.
+The Smart Exchange Reporting Service provides REST APIs for retrieving partner reporting data for both supply and demand partners. The service offers flexible querying capabilities with support for multiple output formats and comprehensive filtering options.
 
 **Base URL:** TBD
 
@@ -39,7 +39,7 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 | Parameters | Data Type | Required | Description | Example |
 | :---- | :---- | :---- | :---- | :---- |
 | `api_key` | String | Yes | API Key |  |
-| `ssp_id` | String | Yes | Supply Partner ID in RiseMediaTech Platform |  |
+| `ssp_id` | String | Yes | Supply Partner ID in Smart ExchangeTech Platform |  |
 | `start_date` | String | Yes | Start Date in YYYY-MM-DD | `2024-01-01` |
 | `end_date` | String | Yes | End Date in YYYY-MM-DD | `2024-01-31` |
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
@@ -111,7 +111,7 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 | Parameters | Data Type | Required | Description | Example |
 | :---- | :---- | :---- | :---- | :---- |
 | `api_key` | String | Yes | API Key |  |
-| `dsp_id` | String | Yes | Demand Partner ID in RiseMediaTech Platform |  |
+| `dsp_id` | String | Yes | Demand Partner ID in Smart ExchangeTech Platform |  |
 | `start_date` | String | Yes | Start Date in YYYY-MM-DD | `2024-01-01` |
 | `end_date` | String | Yes | End Date in YYYY-MM-DD | `2024-01-31` |
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |

@@ -4,9 +4,9 @@ title: "API Documentation"
 permalink: /
 ---
 
-# Welcome to RiseMedia API Documentation
+# Welcome to Smart Exchange API Documentation
 
-This documentation provides comprehensive information about the RiseMedia Reporting Service API endpoints for both Supply and Demand partners.
+This documentation provides comprehensive information about the Smart Exchange Reporting Service API endpoints for both Supply and Demand partners.
 
 ## Quick Navigation
 
@@ -17,7 +17,7 @@ This documentation provides comprehensive information about the RiseMedia Report
 
 ## API Overview
 
-The RiseMedia Reporting Service provides REST APIs for retrieving partner reporting data with:
+The Smart Exchange Reporting Service provides REST APIs for retrieving partner reporting data with:
 
 - ✅ **Flexible filtering** - Filter by date ranges, sites, and endpoints
 - ✅ **Multiple output formats** - JSON and CSV support
@@ -27,7 +27,7 @@ The RiseMedia Reporting Service provides REST APIs for retrieving partner report
 
 ## Getting Started
 
-1. **Obtain your API key** from your RiseMedia partner dashboard
+1. **Obtain your API key** from your Smart Exchange partner dashboard
 2. **Choose your endpoint** - Supply (`/api/v1/supply`) or Demand (`/api/v1/demand`)
 3. **Review the documentation** - Check parameters and response formats
 4. **Make your first request** - Start with a basic date range query

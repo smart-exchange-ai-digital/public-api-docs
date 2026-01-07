@@ -1,11 +1,11 @@
 # Site settings
-title: "RiseMedia API Documentation"
-description: "Comprehensive API documentation for RiseMedia Reporting Service - Supply and Demand Partner APIs"
+title: "Smart Exchange API Documentation"
+description: "Comprehensive API documentation for Smart Exchange Reporting Service - Supply and Demand Partner APIs"
 baseurl: "/public-api-docs"
 url: "https://smart-exchange-ai-digital.github.io"
 
 # Site branding
-logo: "/public-api-docs/assets/risemedia-logo.png"
+logo: "/public-api-docs/assets/icon.png"
 brand_color: "#667eea"
 
 # Build settings
@@ -20,11 +20,11 @@ plugins:
   - jekyll-seo-tag
 
 # SEO settings
-author: "RiseMedia"
+author: "Smart Exchange"
 twitter:
-  username: risemedia
+  username: Smart Exchange
 social:
-  name: RiseMedia
+  name: Smart Exchange
   links:
     - https://github.com/smart-exchange-ai-digital
 
