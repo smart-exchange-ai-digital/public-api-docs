@@ -74,7 +74,7 @@ GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&st
 ```json
 [
   {
-    "date": "2024-01-01",
+    "date": "20240101",
     "hour": 10,
     "site_id": "site123",
     "bundle_domain": "com.example.app",
@@ -83,7 +83,7 @@ GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&st
     "revenue": 45.67
   },
   {
-    "date": "2024-01-01",
+    "date": "20240101",
     "hour": 11,
     "site_id": "site123",
     "bundle_domain": "example.com",
@@ -100,8 +100,8 @@ When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
 date,hour,site_id,bundle_domain,ad_requests,impressions,revenue
-2024-01-01,10,site123,com.example.app,1500,1200,45.67
-2024-01-01,11,site123,example.com,1800,1500,52.34
+20240101,10,site123,com.example.app,1500,1200,45.67
+20240101,11,site123,example.com,1800,1500,52.34
 ```
 
 ## **Demand Partner API**
@@ -152,7 +152,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
 ```json
 [
   {
-    "date": "2024-01-01",
+    "date": "20240101",
     "hour": 10,
     "endpoint_id": "endpoint456",
     "bundle_domain": "com.example.app",
@@ -161,7 +161,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
     "revenue": 78.90
   },
   {
-    "date": "2024-01-01",
+    "date": "20240101",
     "hour": 11,
     "endpoint_id": "endpoint456",
     "bundle_domain": "example.com",
@@ -178,8 +178,8 @@ When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
 date,hour,endpoint_id,bundle_domain,bid_requests,impressions,gross_revenue
-2024-01-01,10,endpoint456,com.example.app,2000,1500,78.90
-2024-01-01,11,endpoint456,example.com,2200,1800,89.12
+20240101,10,endpoint456,com.example.app,2000,1500,78.90
+20240101,11,endpoint456,example.com,2200,1800,89.12
 ```
 
 ## **Error Handling**
@@ -232,7 +232,7 @@ The API uses standard HTTP status codes and returns detailed error information i
   "type": "about:blank",
   "title": "Bad Request",
   "status": 400,
-  "detail": "start_date must be in YYYY-MM-DD format",
+  "detail": "start_date must be in YYYYMMDD format",
   "instance": "/api/v1/demand",
   "description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."
 }
