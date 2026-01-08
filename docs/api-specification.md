@@ -11,7 +11,7 @@ nav_order: 2
 
 The RiseMedia Reporting Service provides REST APIs for retrieving partner reporting data for both supply and demand partners. The service offers flexible querying capabilities with support for multiple output formats and comprehensive filtering options.
 
-**Base URL:** TBD
+**Base URL:** https://reports.adsmartx.com
 
 **API Version:** v1
 
@@ -40,29 +40,33 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 | :---- | :---- | :---- | :---- | :---- |
 | `api_key` | String | Yes | API Key |  |
 | `ssp_id` | String | Yes | Supply Partner ID in RiseMediaTech Platform |  |
-| `start_date` | String | Yes | Start Date in YYYY-MM-DD | `2024-01-01` |
-| `end_date` | String | Yes | End Date in YYYY-MM-DD | `2024-01-31` |
+| `start_date` | String | Yes | Start Date in YYYYMMDD | `20240101` |
+| `end_date` | String | Yes | End Date in YYYYMMDD | `20240131` |
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
 | `site_id` | String | No | Filter by specific site ID(s) | `site123` |
-| `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,site_id` |
+| `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,site_id,bundle_domain` |
 | `metrics` | String | Yes | Comma-separated metrics | `ad_requests,impressions,revenue` |
+| `sort_by` | String | No | Sort results by dimension (allowed: date, hour, site_id) | `date` |
+| `order` | String | No | Sort order (`asc` or `desc`) | `desc` |
+| `bundle_domain` | String | No | Filter by bundle IDs or domain names | `com.example.app,example.com` |
 
 #### **Available Dimensions**
 
-1. `date` - Date in YYYY-MM-DD format
+1. `date` - Date in YYYYMMDD format
 2. `hour` - Hour of the day (0-23)
 3. `site_id` - Site identifier
+4. `bundle_domain` - Bundle ID for apps or domain name for websites
 
 #### **Available Metrics**
 
 1. `ad_requests` - Total number of ad requests
 2. `impressions` - Total number of impressions served
-3. `revenue` - Total supply revenue
+3. `revenue` - Total publisher revenue
 
 #### **Request Example**
 
 ```http
-GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&start_date=2024-01-01&end_date=2024-01-31&output=json&dimensions=date,hour,site_id&metrics=ad_requests,impressions,revenue&site_id=site123
+GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&start_date=20240101&end_date=20240131&output=json&dimensions=date,hour,site_id,bundle_domain&metrics=ad_requests,impressions,revenue&site_id=site123&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
 ```
 
 #### **Response Format (JSON)**
@@ -73,6 +77,7 @@ GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&st
     "date": "2024-01-01",
     "hour": 10,
     "site_id": "site123",
+    "bundle_domain": "com.example.app",
     "ad_requests": 1500,
     "impressions": 1200,
     "revenue": 45.67
@@ -81,6 +86,7 @@ GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&st
     "date": "2024-01-01",
     "hour": 11,
     "site_id": "site123",
+    "bundle_domain": "example.com",
     "ad_requests": 1800,
     "impressions": 1500,
     "revenue": 52.34
@@ -93,9 +99,9 @@ GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&st
 When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
-date,hour,site_id,ad_requests,impressions,revenue
-2024-01-01,10,site123,1500,1200,45.67
-2024-01-01,11,site123,1800,1500,52.34
+date,hour,site_id,bundle_domain,ad_requests,impressions,revenue
+2024-01-01,10,site123,com.example.app,1500,1200,45.67
+2024-01-01,11,site123,example.com,1800,1500,52.34
 ```
 
 ## **Demand Partner API**
@@ -112,29 +118,33 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 | :---- | :---- | :---- | :---- | :---- |
 | `api_key` | String | Yes | API Key |  |
 | `dsp_id` | String | Yes | Demand Partner ID in RiseMediaTech Platform |  |
-| `start_date` | String | Yes | Start Date in YYYY-MM-DD | `2024-01-01` |
-| `end_date` | String | Yes | End Date in YYYY-MM-DD | `2024-01-31` |
+| `start_date` | String | Yes | Start Date in YYYYMMDD | `20240101` |
+| `end_date` | String | Yes | End Date in YYYYMMDD | `20240131` |
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
 | `endpoint_id` | String | No | Filter by specific endpoint ID | `123` |
-| `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,endpoint_id` |
-| `metrics` | String | Yes | Comma-separated metrics | `bid_requests,impressions,revenue` |
+| `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,endpoint_id,bundle_domain` |
+| `metrics` | String | Yes | Comma-separated metrics | `bid_requests,impressions,gross_revenue` |
+| `sort_by` | String | No | Sort results by dimension (allowed: date, hour, endpoint_id) | `date` |
+| `order` | String | No | Sort order (`asc` or `desc`) | `desc` |
+| `bundle_domain` | String | No | Filter by bundle IDs or domain names | `com.example.app,example.com` |
 
 #### **Available Dimensions**
 
-1. `date` - Date in YYYY-MM-DD format
+1. `date` - Date in YYYYMMDD format
 2. `hour` - Hour of the day (0-23)
 3. `endpoint_id` - Endpoint identifier
+4. `bundle_domain` - Bundle ID for apps or domain name for websites
 
 #### **Available Metrics**
 
 1. `bid_requests` - Total number of bid requests
 2. `impressions` - Total number of impressions served
-3. `revenue` - Total demand revenue
+3. `revenue` - Total gross revenue
 
 #### **Request Example**
 
 ```http
-GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&start_date=2024-01-01&end_date=2024-01-31&output=json&dimensions=date,hour,endpoint_id&metrics=bid_requests,impressions,revenue&endpoint_id=endpoint456
+GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&start_date=20240101&end_date=20240131&output=json&dimensions=date,hour,endpoint_id,bundle_domain&metrics=bid_requests,impressions,gross_revenue&endpoint_id=endpoint456&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
 ```
 
 #### **Response Format (JSON)**
@@ -145,6 +155,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
     "date": "2024-01-01",
     "hour": 10,
     "endpoint_id": "endpoint456",
+    "bundle_domain": "com.example.app",
     "bid_requests": 2000,
     "impressions": 1500,
     "revenue": 78.90
@@ -153,6 +164,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
     "date": "2024-01-01",
     "hour": 11,
     "endpoint_id": "endpoint456",
+    "bundle_domain": "example.com",
     "bid_requests": 2200,
     "impressions": 1800,
     "revenue": 89.12
@@ -165,9 +177,9 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
 When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
-date,hour,endpoint_id,bid_requests,impressions,revenue
-2024-01-01,10,endpoint456,2000,1500,78.90
-2024-01-01,11,endpoint456,2200,1800,89.12
+date,hour,endpoint_id,bundle_domain,bid_requests,impressions,gross_revenue
+2024-01-01,10,endpoint456,com.example.app,2000,1500,78.90
+2024-01-01,11,endpoint456,example.com,2200,1800,89.12
 ```
 
 ## **Error Handling**
@@ -220,8 +232,7 @@ The API uses standard HTTP status codes and returns detailed error information i
   "type": "about:blank",
   "title": "Bad Request",
   "status": 400,
-  "detail": "start_date must be in YYYY-MM-DD format",
-  "instance": "/api/v1/demand",
+  "detail": "start_date must be in YYYYMMDD format",
   "description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."
 }
 ```
