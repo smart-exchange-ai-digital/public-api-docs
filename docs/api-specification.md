@@ -40,8 +40,8 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 | :---- | :---- | :---- | :---- | :---- |
 | `api_key` | String | Yes | API Key |  |
 | `ssp_id` | String | Yes | Supply Partner ID in Smart Exchange Platform |  |
-| `start_date` | String | Yes | Start Date in YYYYMMDD | `20240101` |
-| `end_date` | String | Yes | End Date in YYYYMMDD | `20240131` |
+| `start_date` | String | Yes | Start Date (ISO 8601: YYYY-MM-DD) | `2024-01-01` |
+| `end_date` | String | Yes | End Date (ISO 8601: YYYY-MM-DD) | `2024-01-31` |
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
 | `site_id` | String | No | Filter by specific site ID(s) | `site123` |
 | `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,site_id,bundle_domain` |
@@ -52,7 +52,7 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 
 #### **Available Dimensions**
 
-1. `date` - Date in YYYYMMDD format
+1. `date` - Date in YYYY-MM-DD format
 2. `hour` - Hour of the day (0-23)
 3. `site_id` - Site identifier
 4. `bundle_domain` - Bundle ID for apps or domain name for websites
@@ -66,7 +66,7 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 #### **Request Example**
 
 ```http
-GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&start_date=20240101&end_date=20240131&output=json&dimensions=date,hour,site_id,bundle_domain&metrics=ad_requests,impressions,revenue&site_id=site123&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
+GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&start_date=2024-01-01&end_date=2024-01-31&output=json&dimensions=date,hour,site_id,bundle_domain&metrics=ad_requests,impressions,revenue&site_id=site123&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
 ```
 
 #### **Response Format (JSON)**
@@ -74,7 +74,7 @@ GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&st
 ```json
 [
   {
-    "date": "20240101",
+    "date": "2024-01-01",
     "hour": 10,
     "site_id": "site123",
     "bundle_domain": "com.example.app",
@@ -83,7 +83,7 @@ GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&st
     "revenue": 45.67
   },
   {
-    "date": "20240101",
+    "date": "2024-01-01",
     "hour": 11,
     "site_id": "site123",
     "bundle_domain": "example.com",
@@ -100,8 +100,8 @@ When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
 date,hour,site_id,bundle_domain,ad_requests,impressions,revenue
-20240101,10,site123,com.example.app,1500,1200,45.67
-20240101,11,site123,example.com,1800,1500,52.34
+2024-01-01,10,site123,com.example.app,1500,1200,45.67
+2024-01-01,11,site123,example.com,1800,1500,52.34
 ```
 
 ## **Demand Partner API**
@@ -118,8 +118,8 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 | :---- | :---- | :---- | :---- | :---- |
 | `api_key` | String | Yes | API Key |  |
 | `dsp_id` | String | Yes | Demand Partner ID in Smart Exchange Platform |  |
-| `start_date` | String | Yes | Start Date in YYYYMMDD | `20240101` |
-| `end_date` | String | Yes | End Date in YYYYMMDD | `20240131` |
+| `start_date` | String | Yes | Start Date (ISO 8601: YYYY-MM-DD) | `2024-01-01` |
+| `end_date` | String | Yes | End Date (ISO 8601: YYYY-MM-DD) | `2024-01-31` |
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
 | `endpoint_id` | String | No | Filter by specific endpoint ID | `123` |
 | `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,endpoint_id,bundle_domain` |
@@ -130,7 +130,7 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 
 #### **Available Dimensions**
 
-1. `date` - Date in YYYYMMDD format
+1. `date` - Date in YYYY-MM-DD format
 2. `hour` - Hour of the day (0-23)
 3. `endpoint_id` - Endpoint identifier
 4. `bundle_domain` - Bundle ID for apps or domain name for websites
@@ -144,7 +144,7 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 #### **Request Example**
 
 ```http
-GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&start_date=20240101&end_date=20240131&output=json&dimensions=date,hour,endpoint_id,bundle_domain&metrics=bid_requests,impressions,gross_revenue&endpoint_id=endpoint456&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
+GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&start_date=2024-01-01&end_date=2024-01-31&output=json&dimensions=date,hour,endpoint_id,bundle_domain&metrics=bid_requests,impressions,gross_revenue&endpoint_id=endpoint456&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
 ```
 
 #### **Response Format (JSON)**
@@ -152,7 +152,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
 ```json
 [
   {
-    "date": "20240101",
+    "date": "2024-01-01",
     "hour": 10,
     "endpoint_id": "endpoint456",
     "bundle_domain": "com.example.app",
@@ -161,7 +161,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
     "revenue": 78.90
   },
   {
-    "date": "20240101",
+    "date": "2024-01-01",
     "hour": 11,
     "endpoint_id": "endpoint456",
     "bundle_domain": "example.com",
@@ -178,8 +178,8 @@ When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
 date,hour,endpoint_id,bundle_domain,bid_requests,impressions,gross_revenue
-20240101,10,endpoint456,com.example.app,2000,1500,78.90
-20240101,11,endpoint456,example.com,2200,1800,89.12
+2024-01-01,10,endpoint456,com.example.app,2000,1500,78.90
+2024-01-01,11,endpoint456,example.com,2200,1800,89.12
 ```
 
 ## **Error Handling**
@@ -232,7 +232,7 @@ The API uses standard HTTP status codes and returns detailed error information i
   "type": "about:blank",
   "title": "Bad Request",
   "status": 400,
-  "detail": "start_date must be in YYYYMMDD format",
+  "detail": "start_date must be in yyyy-MM-dd format",
   "instance": "/api/v1/demand",
   "description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."
 }
