@@ -5,13 +5,13 @@ permalink: /api-specification/
 nav_order: 2
 ---
 
-# **RiseMedia Reporting Service API Specification**
+# **Smart Exchange Reporting Service API Specification**
 
 ## **Overview**
 
-The RiseMedia Reporting Service provides REST APIs for retrieving partner reporting data for both supply and demand partners. The service offers flexible querying capabilities with support for multiple output formats and comprehensive filtering options.
+The Smart Exchange Reporting Service provides REST APIs for retrieving partner reporting data for both supply and demand partners. The service offers flexible querying capabilities with support for multiple output formats and comprehensive filtering options.
 
-**Base URL:** https://reports.adsmartx.com
+**Base URL:** Login to Smart Exchange console or reach out to your contact in Smart Exchange
 
 **API Version:** v1
 
@@ -39,7 +39,7 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 | Parameters | Data Type | Required | Description | Example |
 | :---- | :---- | :---- | :---- | :---- |
 | `api_key` | String | Yes | API Key |  |
-| `ssp_id` | String | Yes | Supply Partner ID in RiseMediaTech Platform |  |
+| `ssp_id` | String | Yes | Supply Partner ID in Smart Exchange Platform |  |
 | `start_date` | String | Yes | Start Date in YYYYMMDD | `20240101` |
 | `end_date` | String | Yes | End Date in YYYYMMDD | `20240131` |
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
@@ -61,7 +61,7 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 
 1. `ad_requests` - Total number of ad requests
 2. `impressions` - Total number of impressions served
-3. `revenue` - Total publisher revenue
+3. `revenue` - Total supply revenue
 
 #### **Request Example**
 
@@ -117,7 +117,7 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 | Parameters | Data Type | Required | Description | Example |
 | :---- | :---- | :---- | :---- | :---- |
 | `api_key` | String | Yes | API Key |  |
-| `dsp_id` | String | Yes | Demand Partner ID in RiseMediaTech Platform |  |
+| `dsp_id` | String | Yes | Demand Partner ID in Smart Exchange Platform |  |
 | `start_date` | String | Yes | Start Date in YYYYMMDD | `20240101` |
 | `end_date` | String | Yes | End Date in YYYYMMDD | `20240131` |
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
@@ -139,7 +139,7 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 
 1. `bid_requests` - Total number of bid requests
 2. `impressions` - Total number of impressions served
-3. `revenue` - Total gross revenue
+3. `revenue` - Total demand revenue
 
 #### **Request Example**
 
@@ -232,7 +232,8 @@ The API uses standard HTTP status codes and returns detailed error information i
   "type": "about:blank",
   "title": "Bad Request",
   "status": 400,
-  "detail": "start_date must be in YYYYMMDD format",
+  "detail": "start_date must be in YYYY-MM-DD format",
+  "instance": "/api/v1/demand",
   "description": "Required field(s) missing or contain(s) invalid field(s) value, please try again."
 }
 ```
@@ -305,7 +306,7 @@ The API uses API Key authentication for partner access. Each partner (Supply or 
     </p>
     <div class="footer-license">
       <hr>
-      <p>&copy; 2025 AI Digital. All rights reserved.</p>
+      <p>&copy; 2026 AI Digital. All rights reserved.</p>
       <p>This documentation is proprietary and subject to the terms of your Partner Agreement. 
       <a href="https://github.com/smart-exchange-ai-digital/public-api-docs/blob/main/LICENSE" target="_blank">View license terms</a> | 
       <a href="https://github.com/smart-exchange-ai-digital/public-api-docs" target="_blank">GitHub Repository</a></p>

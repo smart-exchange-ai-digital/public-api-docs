@@ -1,14 +1,20 @@
 <nav class="site-nav">
   <div class="nav-container">
     <a href="{{ '/' | relative_url }}" class="nav-logo">
-      <img src="https://smart-exchange-ai-digital.github.io/public-api-docs/assets/risemedia-logo.png" 
-           alt="RiseMedia Logo" 
+      <img src="https://smart-exchange-ai-digital.github.io/public-api-docs/assets/icon.png" 
+           alt="Smart Exchange Logo" 
            class="logo-image" 
            loading="eager"
            onerror="console.log('Logo failed to load:', this.src); this.style.border='2px solid red';"
            onload="console.log('Logo loaded successfully:', this.src);"
            crossorigin="anonymous">
-      <strong>RiseMedia API</strong>
+      <img src="https://smart-exchange-ai-digital.github.io/public-api-docs/assets/nameicon.png" 
+           alt="Smart Exchange API" 
+           class="name-logo-image" 
+           loading="eager"
+           onerror="console.log('Name Logo failed to load:', this.src); this.style.border='2px solid red';"
+           onload="console.log('Name Logo loaded successfully:', this.src);"
+           crossorigin="anonymous">
     </a>
     <div class="nav-links">
       <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">
@@ -29,9 +35,11 @@
   background: linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 100%);
   color: white;
   padding: 15px 0;
-  margin-bottom: 30px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .nav-container {
@@ -50,7 +58,7 @@
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .nav-logo strong {
@@ -80,7 +88,26 @@
   min-height: 32px !important;
 }
 
+.name-logo-image {
+  height: 32px !important;
+  width: auto !important;
+  transition: all 0.3s ease;
+  background: white !important;
+  padding: 2px !important;
+  border-radius: 4px !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: none !important;
+  min-height: 32px !important;
+}
+
 .nav-logo:hover .logo-image {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.nav-logo:hover .name-logo-image {
   transform: scale(1.05);
   opacity: 0.9;
 }
