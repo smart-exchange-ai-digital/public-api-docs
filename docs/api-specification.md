@@ -38,12 +38,12 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 
 | Parameters | Data Type | Required | Description | Example |
 | :---- | :---- | :---- | :---- | :---- |
-| `api_key` | String | Yes | API Key |  |
-| `ssp_id` | String | Yes | Supply Partner ID in Smart Exchange Platform |  |
-| `start_date` | String | Yes | Start Date (ISO 8601: YYYY-MM-DD) | `2024-01-01` |
-| `end_date` | String | Yes | End Date (ISO 8601: YYYY-MM-DD) | `2024-01-31` |
+| `api_key` | String | Yes | API Key | `AbCdEfGhIjKlMnOpQrStUvWxYz1234567890` |
+| `ssp_id` | String | Yes | Supply Partner ID in Smart Exchange Platform | `123456` |
+| `start_date` | String | Yes | Start Date (ISO 8601: YYYY-MM-DD) | `2026-01-01` |
+| `end_date` | String | Yes | End Date (ISO 8601: YYYY-MM-DD) | `2026-01-31` |
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
-| `site_id` | String | No | Filter by specific site ID(s) | `site123` |
+| `site_id` | String | No | Filter by specific site ID(s) | `12345678` |
 | `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,site_id,bundle_domain` |
 | `metrics` | String | Yes | Comma-separated metrics | `ad_requests,impressions,revenue` |
 | `sort_by` | String | No | Sort results by dimension (allowed: date, hour, site_id) | `date` |
@@ -66,7 +66,7 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 #### **Request Example**
 
 ```http
-GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&start_date=2024-01-01&end_date=2024-01-31&output=json&dimensions=date,hour,site_id,bundle_domain&metrics=ad_requests,impressions,revenue&site_id=site123&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
+GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=123456&start_date=2026-01-01&end_date=2026-01-31&output=json&dimensions=date,hour,site_id,bundle_domain&metrics=ad_requests,impressions,revenue&site_id=12345678&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
 ```
 
 #### **Response Format (JSON)**
@@ -74,18 +74,18 @@ GET /api/v1/supply?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&ssp_id=ssp123&st
 ```json
 [
   {
-    "date": "2024-01-01",
+    "date": "2026-01-01",
     "hour": 10,
-    "site_id": "site123",
+    "site_id": "12345678",
     "bundle_domain": "com.example.app",
     "ad_requests": 1500,
     "impressions": 1200,
     "revenue": 45.67
   },
   {
-    "date": "2024-01-01",
+    "date": "2026-01-01",
     "hour": 11,
-    "site_id": "site123",
+    "site_id": "12345678",
     "bundle_domain": "example.com",
     "ad_requests": 1800,
     "impressions": 1500,
@@ -100,8 +100,8 @@ When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
 date,hour,site_id,bundle_domain,ad_requests,impressions,revenue
-2024-01-01,10,site123,com.example.app,1500,1200,45.67
-2024-01-01,11,site123,example.com,1800,1500,52.34
+2026-01-01,10,12345678,com.example.app,1500,1200,45.67
+2026-01-01,11,12345678,example.com,1800,1500,52.34
 ```
 
 ## **Demand Partner API**
@@ -116,10 +116,10 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 
 | Parameters | Data Type | Required | Description | Example |
 | :---- | :---- | :---- | :---- | :---- |
-| `api_key` | String | Yes | API Key |  |
-| `dsp_id` | String | Yes | Demand Partner ID in Smart Exchange Platform |  |
-| `start_date` | String | Yes | Start Date (ISO 8601: YYYY-MM-DD) | `2024-01-01` |
-| `end_date` | String | Yes | End Date (ISO 8601: YYYY-MM-DD) | `2024-01-31` |
+| `api_key` | String | Yes | API Key | `AbCdEfGhIjKlMnOpQrStUvWxYz1234567890` |
+| `dsp_id` | String | Yes | Demand Partner ID in Smart Exchange Platform | `123` |
+| `start_date` | String | Yes | Start Date (ISO 8601: YYYY-MM-DD) | `2026-01-01` |
+| `end_date` | String | Yes | End Date (ISO 8601: YYYY-MM-DD) | `2026-01-31` |
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
 | `endpoint_id` | String | No | Filter by specific endpoint ID | `123` |
 | `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,endpoint_id,bundle_domain` |
@@ -144,7 +144,7 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 #### **Request Example**
 
 ```http
-GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&start_date=2024-01-01&end_date=2024-01-31&output=json&dimensions=date,hour,endpoint_id,bundle_domain&metrics=bid_requests,impressions,revenue&endpoint_id=endpoint456&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
+GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&start_date=2026-01-01&end_date=2026-01-31&output=json&dimensions=date,hour,endpoint_id,bundle_domain&metrics=bid_requests,impressions,revenue&endpoint_id=endpoint456&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
 ```
 
 #### **Response Format (JSON)**
@@ -152,7 +152,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
 ```json
 [
   {
-    "date": "2024-01-01",
+    "date": "2026-01-01",
     "hour": 10,
     "endpoint_id": "endpoint456",
     "bundle_domain": "com.example.app",
@@ -161,7 +161,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
     "revenue": 78.90
   },
   {
-    "date": "2024-01-01",
+    "date": "2026-01-01",
     "hour": 11,
     "endpoint_id": "endpoint456",
     "bundle_domain": "example.com",
@@ -178,8 +178,8 @@ When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
 date,hour,endpoint_id,bundle_domain,bid_requests,impressions,revenue
-2024-01-01,10,endpoint456,com.example.app,2000,1500,78.90
-2024-01-01,11,endpoint456,example.com,2200,1800,89.12
+2026-01-01,10,endpoint456,com.example.app,2000,1500,78.90
+2026-01-01,11,endpoint456,example.com,2200,1800,89.12
 ```
 
 ## **Error Handling**
