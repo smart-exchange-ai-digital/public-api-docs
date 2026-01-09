@@ -123,7 +123,7 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 | `output` | String | Yes | Output format (`json` or `csv`) | `json` |
 | `endpoint_id` | String | No | Filter by specific endpoint ID | `123` |
 | `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,endpoint_id,bundle_domain` |
-| `metrics` | String | Yes | Comma-separated metrics | `bid_requests,impressions,gross_revenue` |
+| `metrics` | String | Yes | Comma-separated metrics | `bid_requests,impressions,revenue` |
 | `sort_by` | String | No | Sort results by dimension (allowed: date, hour, endpoint_id) | `date` |
 | `order` | String | No | Sort order (`asc` or `desc`) | `desc` |
 | `bundle_domain` | String | No | Filter by bundle IDs or domain names | `com.example.app,example.com` |
@@ -144,7 +144,7 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 #### **Request Example**
 
 ```http
-GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&start_date=2024-01-01&end_date=2024-01-31&output=json&dimensions=date,hour,endpoint_id,bundle_domain&metrics=bid_requests,impressions,gross_revenue&endpoint_id=endpoint456&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
+GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&start_date=2024-01-01&end_date=2024-01-31&output=json&dimensions=date,hour,endpoint_id,bundle_domain&metrics=bid_requests,impressions,revenue&endpoint_id=endpoint456&sort_by=date&order=desc&bundle_domain=com.example.app,example.com
 ```
 
 #### **Response Format (JSON)**
@@ -177,7 +177,7 @@ GET /api/v1/demand?api_key=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890&dsp_id=dsp123&st
 When `output=csv`, the response will be a CSV file with headers:
 
 ```csv
-date,hour,endpoint_id,bundle_domain,bid_requests,impressions,gross_revenue
+date,hour,endpoint_id,bundle_domain,bid_requests,impressions,revenue
 2024-01-01,10,endpoint456,com.example.app,2000,1500,78.90
 2024-01-01,11,endpoint456,example.com,2200,1800,89.12
 ```
