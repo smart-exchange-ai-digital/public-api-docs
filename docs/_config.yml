@@ -1,6 +1,6 @@
 # Site settings
-title: "Smart Exchange API Documentation"
-description: "Comprehensive API documentation for Smart Exchange Reporting Service - Supply and Demand Partner APIs"
+title: "AgenticX API Documentation"
+description: "Comprehensive API documentation for AgenticX Reporting Service - Supply and Demand Partner APIs"
 baseurl: "/public-api-docs"
 url: "https://public-api-docs.theagenticx.ai"
 
@@ -20,11 +20,11 @@ plugins:
   - jekyll-seo-tag
 
 # SEO settings
-author: "Smart Exchange"
+author: "AgenticX"
 twitter:
-  username: adsmartx
+  username: theagenticx
 social:
-  name: Smart Exchange
+  name: AgenticX
   links:
     - https://github.com/smart-exchange-ai-digital
 
