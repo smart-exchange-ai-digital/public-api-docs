@@ -5,13 +5,13 @@ permalink: /api-specification/
 nav_order: 2
 ---
 
-# **AgenticX Reporting Service API Specification**
+# **agenticX Reporting Service API Specification**
 
 ## **Overview**
 
-The AgenticX Reporting Service provides REST APIs for retrieving partner reporting data for both supply and demand partners. The service offers flexible querying capabilities with support for multiple output formats and comprehensive filtering options.
+The agenticX Reporting Service provides REST APIs for retrieving partner reporting data for both supply and demand partners. The service offers flexible querying capabilities with support for multiple output formats and comprehensive filtering options.
 
-**Base URL:** Login to AgenticX console or reach out to your contact in AgenticX
+**Base URL:** Login to agenticX console or reach out to your contact in agenticX
 
 **API Version:** v1
 
@@ -39,7 +39,7 @@ Retrieves supply partner reporting data with flexible filtering and output forma
 | Parameters | Data Type | Required | Description | Example |
 | :---- | :---- | :---- | :---- | :---- |
 | `api_key` | String | Yes | API Key | `AbCdEfGhIjKlMnOpQrStUvWxYz1234567890` |
-| `ssp_id` | String | Yes | Supply Partner ID in AgenticX Platform | `123456` |
+| `ssp_id` | String | Yes | Supply Partner ID in agenticX Platform | `123456` |
 | `start_date` | String | Yes | Start Date (ISO 8601: YYYY-MM-DD) | `2026-01-01` |
 | `end_date` | String | Yes | End Date (ISO 8601: YYYY-MM-DD) | `2026-01-31` |
 | `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,site_id,bundle_domain` |
@@ -117,7 +117,7 @@ Retrieves demand partner reporting data with flexible filtering and output forma
 | Parameters | Data Type | Required | Description | Example |
 | :---- | :---- | :---- | :---- | :---- |
 | `api_key` | String | Yes | API Key | `AbCdEfGhIjKlMnOpQrStUvWxYz1234567890` |
-| `dsp_id` | String | Yes | Demand Partner ID in AgenticX Platform | `123` |
+| `dsp_id` | String | Yes | Demand Partner ID in agenticX Platform | `123` |
 | `start_date` | String | Yes | Start Date (ISO 8601: YYYY-MM-DD) | `2026-01-01` |
 | `end_date` | String | Yes | End Date (ISO 8601: YYYY-MM-DD) | `2026-01-31` |
 | `dimensions` | String | Yes | Comma-separated dimensions | `date,hour,endpoint_id,bundle_domain` |
