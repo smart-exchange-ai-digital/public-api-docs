@@ -1,11 +1,11 @@
 # Site settings
 title: "AgenticX API Documentation"
 description: "Comprehensive API documentation for AgenticX Reporting Service - Supply and Demand Partner APIs"
-baseurl: "/public-api-docs"
+baseurl: ""
 url: "https://public-api-docs.theagenticx.ai"
 
 # Site branding
-logo: "/public-api-docs/assets/icon.png"
+logo: "/assets/icon.png"
 brand_color: "#667eea"
 
 # Build settings
